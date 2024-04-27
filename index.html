@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="public/style.css">
+    <script src="public/script.js" defer></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Slab:ital,wght@0,100..700;1,100..700&display=swap"
+        rel="stylesheet">
+    <title>Portfolio website</title>
+
+    <style>
+        #body-container::-webkit-scrollbar {
+            width: 0;
+            /* Nasconde la barra di scorrimento */
+        }
+
+        @keyframes fade {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        .parent-div {
+            /* opacity: 0; */
+            animation: fade linear 5s;
+            /* animation: reveal linear both; */
+            animation-timeline: view(block);
+            animation-range: cover 30% contain 50%;
+        }
+
+        .parent-div.in-viewport {
+            animation-play-state: running;
+        }
+    </style>
+
+</head>
+
+<body class="w-screen h-screen bg-[#FFFBE9] font-josefin">
+    <div id="body-container" class="w-screen h-screen overflow-scroll snap-y snap-mandatory bg-[#FFFBE9]">
+        <!-- HEADER  -->
+        <div class="fixed z-30 flex content-center justify-center w-full h-16 py-1 header bg-[#FFFBE9]">
+            <!-- Aggiunto z-30 -->
+            <div class="h-full header-logo">
+                <img src="img/logo-frontendbee.svg" alt="logo" class="h-full">
+            </div>
+            <!-- hidden -right-[1000px] -->
+            <div id="header-menu"
+                class="absolute z-20 flex items-center content-center justify-center w-screen h-screen pb-32 mt-16
+            bg-[#FFFBE9] bg-opacity-80 header-menu hidden -right-[1000px] lg:block lg:right-0 lg:pb-0  lg:h-16 lg:w-screen lg:bg-opacity-100 lg:h-fit">
+                <div
+                    class="flex content-center justify-center w-3/4 bg-[#FFFBE9] border border-[#F9C901] h-1/2 header-nav-link lg:w-full">
+                    <ul
+                        class="flex flex-col justify-center my-auto bg-[#FFFBE9] h-1/2 gap-7 lg:flex-row lg:items-center lg:gap-36 lg:w-full">
+                        <li class="text-center header-menu-link lg:w-28"><a class="hover:text-[#F9C901]"
+                                href="#hero">Cosa facciamo</a></li>
+                        <li class="text-center header-menu-link lg:w-28"><a class="hover:text-[#F9C901]"
+                                href="#prodotti">I lavori</a></li>
+                        <li class="text-center header-menu-link lg:w-28"><a class="hover:text-[#F9C901]"
+                                href="#contatti">I contatti</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div id="header-ham" class="absolute my-auto h-9 w-9 header-ham right-3 top-6 lg:hidden">
+                <img src="img/ham-open.svg" alt="" class="">
+                <img src="img/ham-close.svg" alt="" class="hidden">
+            </div>
+        </div>
+
+        <!-- HERO  -->
+        <div id="hero" class="z-10 flex w-full h-full hero bg-[#FFFBE9] snap-start">
+            <div class="relative flex flex-col mx-auto my-auto w-fit bg-[#FFFBE9] h-fit gap-14">
+                <p class="w-60 md:w-80">In un mondo frenetico e distratto, <span class="text-[#F9C901]">pochi
+                        dettagli</span> possono fare la differenza.</p>
+                <p class="w-60 md:w-80">I siti web dovrebbero focalizzarsi sulla chiarezza, l'usabilità e
+                    l'efficacia
+                    per rendere più fluido il rapporto con i tuoi clienti.</p>
+                <p class="w-60 md:w-80">Il tuo sito ti aspetta. <span
+                        class="text-[#F9C901]">Contattaci</span>!</p>
+            </div>
+        </div>
+
+        <!-- PRODOTTI -->
+        <div id="prodotti"
+            class="flex flex-col items-center justify-center min-h-full pt-24 bg-[#FFFBE9] galleria gap-14 snap-start">
+            <p class="bg-[#FFFBE9] w-fit">Alcuni esempi <span class="text-[#F9C901]">dei nostri siti</span></p>
+            <div id="prodotti-img"
+                class="flex snap-x snap-mandatory overflow-x-auto galleria-container w-[200px] max-w-[300px] max-h-[500px] bg-[#FFFBE9] lg:max-w-screen-lg lg:w-screen p- lg:justify-evenly">
+                <img class="w-full snap-start lg:w-[200px] image-slide1 " src="img/screenshot-sito3.png" alt="">
+                <img class="w-full snap-start lg:w-[200px] image-slide2 hidden lg:block " src="img/screenshot-sito1.png"
+                    alt="">
+                <img class="w-full snap-start lg:w-[200px] image-slide3 hidden lg:block " src="img/screenshot-sito2.png"
+                    alt="">
+            </div>
+            <div id="prodotti-p" class="bg-[#FFFBE9] w-fit lg:max-w-screen-lg lg:w-screen lg:flex lg:justify-evenly">
+                <p class="lg:w-[200px] bg-[#FFFBE9]">I colori adatti alla tua attività.</p>
+                <p class="hidden lg:block lg:w-[200px] bg-[#FFFBE9]">Il tuo menù facilmente consultabile.</p>
+                <p class="hidden lg:block lg:w-[200px] bg-[#FFFBE9]">Eleganza per raccontare la tua storia</p>
+            </div>
+            <div id="prodotti-sfere" class="flex gap-4 lg:hidden">
+                <div class="circle rounded-full h-5 w-5 bg-[#F9C901] border"></div>
+                <div class="w-5 h-5 rounded-full circle bg-[#FFFBE9] border border-[#F9C901]"></div>
+                <div class="w-5 h-5 rounded-full circle bg-[#FFFBE9] border border-[#F9C901]"></div>
+            </div>
+        </div>
+
+        <!-- CONTATTI + FOOTER -->
+        <div id="contatti" class="w-full h-full pt-16 bg-[#FFFBE9] contatti snap-start">
+            <div
+                class="flex flex-col content-center justify-center h-full mx-auto bg-[#FFFBE9] w-fit contatti-container gap-9">
+                <p class="bg-[#FFFBE9] w-60 text-center">Lasciaci la tua email. Ti ricontatteremo al più presto!</p>
+
+                <form class="flex flex-col items-start content-center gap-2"
+                    action="https://formsubmit.co/9eedc38f861989861a465c0aa5d5d2e7" method="POST">
+                    <input type="email" name="email" id="email" placeholder=".  .  ."
+                        class="w-full py-2 mb-2 text-center border rounded-md" required>
+                    <button type="submit"
+                        class="px-4 py-2 mx-auto  bg-white rounded-md border border-[#F9C901] hover:border-black hover:bg-[#F9C901]">Invia</button>
+                </form>
+                <p class="mt-16 text-center">Ti aspettiamo!</p>
+            </div>
+            <!-- FOOTER  -->
+            <div
+                class="relative bottom-0 sm:flex sm:flex-row w-full h-10 bg-[#FFFBE9] footer  justify-evenly gap-9 flex-col ">
+                <div class="flex items-center justify-end sm:w-1/2 w-fit gap-5 bg-[#FFFBE9] mx-auto">
+                    <img class="h-8" src="img/logo-frontendbee.svg" alt="">
+                </div>
+                <p class="text-center ">by FrontendBee with ♥ ©2024</p>
+                <div class="flex items-center sm:w-1/2 gap-2 bg-[#FFFBE9] footer-social w-fit mx-auto">
+                    <img class="h-6" src="img/threads-app-icon.svg" alt="">
+                    <img class="h-6" src="img/tiktok-color-icon.svg" alt="">
+                    <img class="h-6" src="img/twitter-color-icon.svg" alt="">
+                    <img class="h-6" src="img/ig-instagram-icon.svg" alt="">
+                </div>
+
+            </div>
+            <div class="w-full h-0 snap-start"></div>
+        </div>
+
+
+    </div>
+</body>
+
+</html>
